@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Лабораторная4 - Akulov_Aleksey_K33391</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Akulov_Aleksey_K33391</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../Lab1/" class="nav-link">Лабораторная1</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Lab2/" class="nav-link">Лабораторная2</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Lab3/" class="nav-link">Лабораторная3</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Лабораторная4</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Practices/" class="nav-link">Practices</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Lab3/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Practices/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#no4" class="nav-link">Отчет по лабораторной работе №4</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">Регистрация и вход</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">Рецепты</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">Ингредиенты</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">Общее</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">Вывод</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="no4">Отчет по лабораторной работе №4</h1>
+<p>Выполнил: Акулов Алексей, K33391</p>
+<h4 id="_1">Цель работы:</h4>
+<p>Овладеть практическими навыками и умениями 
+реализации клиентской части приложения средствами vue.js</p>
+<h3 id="_2">Серверная часть</h3>
+<p>Я делал свой собственный вариант, согласовав его предварительно с преподаватеями.
+Идея сайта: модульные рецепты, которые пользователь может составить самостоятельно + возможность добавлять 
+ингредиенты и инструменты для рецептов и собирать планы питания. Также нужно не забыть добавить профиль для пользователя.
+Подробнее можно узнать в 3 Лабораторной</p>
+<h2 id="_3">Регистрация и вход</h2>
+<p>Регистрация и вход представляют собой классические страницы, где пользователь вводит
+свои данные и потом на сервере ему выдается токен. Не забываем добавить стили 
+для более приятного внешнего вида.</p>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Registration&lt;/h2&gt;
+    &lt;form @submit.prevent=&quot;register&quot;&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;
+        &lt;input id=&quot;username&quot; v-model=&quot;user.username&quot; type=&quot;text&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+        &lt;input id=&quot;email&quot; v-model=&quot;user.email&quot; type=&quot;email&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;
+        &lt;input id=&quot;password&quot; v-model=&quot;user.password&quot; type=&quot;password&quot; required&gt;
+      &lt;/div&gt;
+      &lt;button type=&quot;submit&quot;&gt;Register&lt;/button&gt;
+      &lt;router-link to=&quot;/login&quot;&gt;Log in&lt;/router-link&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from 'axios';
+
+export default {
+  name: 'RegisterPage',
+  data() {
+    return {
+      user: {
+        username: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    async register() {
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/auth/users/', this.user);
+        console.log('Registration successful', response.data);
+
+        const response_login = await axios.post('http://127.0.0.1:8000/auth/token/login/', {
+          username: this.user.username,
+          password: this.user.password,
+        });
+
+        const accessToken = response_login.data.auth_token;
+        localStorage.setItem('access_token', accessToken);
+        console.log('Login successful. Token:', accessToken);
+
+        this.$router.push('/');
+      } catch (error) {
+        console.error('Ошибка при регистрации:', error.response.data);
+      }
+    }
+  }
+}
+&lt;/script&gt;
+
+
+
+&lt;style scoped&gt;
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+button {
+  background-color: #3bbc55;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 4px;
+}
+&lt;/style&gt;
+</code></pre>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Log in&lt;/h2&gt;
+    &lt;form @submit.prevent=&quot;login&quot;&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;username&quot;&gt;Uername:&lt;/label&gt;
+        &lt;input id=&quot;username&quot; v-model=&quot;username&quot; type=&quot;text&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;
+        &lt;input id=&quot;password&quot; v-model=&quot;password&quot; type=&quot;password&quot; required&gt;
+      &lt;/div&gt;
+      &lt;button type=&quot;submit&quot;&gt;Log in&lt;/button&gt;
+      &lt;router-link to=&quot;/register&quot;&gt;Register&lt;/router-link&gt;
+
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from 'axios';
+
+export default {
+  name: 'LoginPage',
+  data() {
+    return {
+        username: '',
+        password: ''
+    }
+  },
+  methods: {
+    async login() {
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/auth/token/login/', {
+          username: this.username,
+          password: this.password,
+        });
+
+        const accessToken = response.data.auth_token;
+        localStorage.setItem('access_token', accessToken);
+        console.log('Login successful. Token:', accessToken);
+
+        this.$router.push('/');
+
+      } catch (error) {
+        console.error('Login failed:', error.response.data);
+      }
+    }
+
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+button {
+  background-color: #3bbc55;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 4px;
+}
+&lt;/style&gt;
+
+
+</code></pre>
+<p>страница входа:
+<img alt="Picture_login" src="../tests/img_login.png" /></p>
+<h2 id="_4">Рецепты</h2>
+<p>Страница с рецептами выходит самой большой, т.к. нужно сделать две формы на добавление и редактирование
+рецептов, из-за чего код занимает под 500 строчек</p>
+<pre><code>&lt;template&gt;
+  &lt;div class = &quot;main-container&quot;&gt;
+    &lt;div class = &quot;recipe-list-container&quot;&gt;
+
+      &lt;h1&gt;Recipes&lt;/h1&gt;
+        &lt;ul class=&quot;recipe-list&quot;&gt;
+          &lt;li v-for=&quot;recipe in recipes&quot; :key=&quot;recipe.id&quot;&gt;
+            &lt;h2&gt;{{ recipe.title }}&lt;/h2&gt;
+
+            &lt;p&gt;&lt;span class=&quot;label&quot;&gt;Preparation Time:&lt;/span&gt; &lt;span class=&quot;value&quot;&gt;{{ recipe.preparation_time }} min&lt;/span&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;span class=&quot;label&quot;&gt;Cooking Time:&lt;/span&gt; &lt;span class=&quot;value&quot;&gt;{{ recipe.cooking_time }} min&lt;/span&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;span class=&quot;label&quot;&gt;Difficulty:&lt;/span&gt; &lt;span class=&quot;value&quot;&gt;{{ recipe.difficulty_level }}&lt;/span&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;span class=&quot;label&quot;&gt;Region:&lt;/span&gt; &lt;span class=&quot;value&quot;&gt;{{ recipe.region }}&lt;/span&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;span class=&quot;label&quot;&gt;Vegetarian:&lt;/span&gt; &lt;span class=&quot;value&quot;&gt;{{ recipe.is_vegetarian ? 'Yes' : 'No' }}&lt;/span&gt;&lt;/p&gt;
+            &lt;br&gt;&lt;br&gt;
+            &lt;div v-if=&quot;recipe.ingredients.length&quot;&gt;
+              &lt;h3&gt;Ingredients:&lt;/h3&gt;
+              &lt;ul&gt;
+                &lt;li v-for=&quot;ingredient in recipe.ingredients&quot; :key=&quot;ingredient.id&quot;&gt;
+                  &lt;span class=&quot;value&quot;&gt;{{ ingredient.ingredient.name }}&lt;/span&gt; - &lt;span class=&quot;value&quot;&gt;{{ ingredient.quantity }}&lt;/span&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+
+            &lt;div v-if=&quot;recipe.tools.length&quot;&gt;
+              &lt;h3&gt;Tools:&lt;/h3&gt;
+              &lt;ul&gt;
+                &lt;li v-for=&quot;tool in recipe.tools&quot; :key=&quot;tool.id&quot;&gt;
+                  &lt;span class=&quot;value&quot;&gt;{{ tool.tool.name }}&lt;/span&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+
+            &lt;br&gt;
+            &lt;button @click=&quot;deleteRecipe(recipe.id)&quot;&gt;Delete&lt;/button&gt;
+            &lt;button @click=&quot;startEdit(recipe)&quot;&gt;Edit&lt;/button&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+
+
+        &lt;div  v-if=&quot;editRecipe&quot;&gt;
+          &lt;h2&gt;Recipe Edition: {{ editRecipe.title }}&lt;/h2&gt;
+          &lt;form @submit.prevent=&quot;updateRecipe&quot;&gt;
+            &lt;div&gt;
+              &lt;label for=&quot;editTitle&quot;&gt;Title:&lt;/label&gt;
+              &lt;input id=&quot;editTitle&quot; type=&quot;text&quot; v-model=&quot;editRecipe.title&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;label for=&quot;editPreparationTime&quot;&gt;Preparation Time (in minutes):&lt;/label&gt;
+              &lt;input id=&quot;editPreparationTime&quot; type=&quot;number&quot; v-model=&quot;editRecipe.preparation_time&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;label for=&quot;editCookingTime&quot;&gt;Cooking Time (in minutes):&lt;/label&gt;
+              &lt;input id=&quot;editCookingTime&quot; type=&quot;number&quot; v-model=&quot;editRecipe.cooking_time&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;label for=&quot;editDifficulty&quot;&gt;Difficulty:&lt;/label&gt;
+              &lt;select id=&quot;editDifficulty&quot; v-model=&quot;editRecipe.difficulty_level&quot; required&gt;
+                &lt;option value=&quot;E&quot;&gt;Easy&lt;/option&gt;
+                &lt;option value=&quot;M&quot;&gt;Medium&lt;/option&gt;
+                &lt;option value=&quot;H&quot;&gt;Hard&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;label for=&quot;editRegion&quot;&gt;Region:&lt;/label&gt;
+              &lt;input id=&quot;editRegion&quot; type=&quot;text&quot; v-model=&quot;editRecipe.region&quot;&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;label for=&quot;editVegetarian&quot;&gt;Vegetarian:&lt;/label&gt;
+              &lt;input id=&quot;editVegetarian&quot; type=&quot;checkbox&quot; v-model=&quot;editRecipe.is_vegetarian&quot;&gt;
+            &lt;/div&gt;
+
+
+
+            &lt;h3&gt;Ingredients:&lt;/h3&gt;
+            &lt;ul&gt;
+              &lt;li v-for=&quot;(ingredient, index) in editRecipe.ingredients&quot; :key=&quot;ingredient.id&quot;&gt;
+                {{ ingredient.ingredient.name }} -
+                &lt;input type=&quot;text&quot; v-model=&quot;ingredient.quantity&quot;&gt;
+                &lt;button @click=&quot;removeIngredient(index)&quot;&gt;Remove&lt;/button&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;div&gt;
+              &lt;select v-model=&quot;newIngredientId&quot;&gt;
+                &lt;option v-for=&quot;ingredient in ingredients&quot; :value=&quot;ingredient.id&quot;&gt;{{ ingredient.name }}&lt;/option&gt;
+              &lt;/select&gt;
+              &lt;input type=&quot;text&quot; v-model=&quot;newIngredientQuantity&quot; placeholder=&quot;Quantity&quot;&gt;
+              &lt;button @click=&quot;addIngredient&quot;&gt;Add Ingredient&lt;/button&gt;
+            &lt;/div&gt;
+
+
+            &lt;button type=&quot;submit&quot;&gt;Update Recipe&lt;/button&gt;
+            &lt;button @click=&quot;cancelEdit&quot;&gt;Cancel&lt;/button&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-container&quot;&gt;
+      &lt;h2&gt;Create a New Recipe&lt;/h2&gt;
+      &lt;form @submit.prevent=&quot;createRecipe&quot;&gt;
+        &lt;div&gt;
+          &lt;label for=&quot;newTitle&quot;&gt;Title:&lt;/label&gt;
+          &lt;input id=&quot;newTitle&quot; type=&quot;text&quot; v-model=&quot;newRecipe.title&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newPreparationTime&quot;&gt;Preparation Time (in minutes):&lt;/label&gt;
+          &lt;input id=&quot;newPreparationTime&quot; type=&quot;number&quot; v-model=&quot;newRecipe.preparation_time&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newCookingTime&quot;&gt;Cooking Time (in minutes):&lt;/label&gt;
+          &lt;input id=&quot;newCookingTime&quot; type=&quot;number&quot; v-model=&quot;newRecipe.cooking_time&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newDifficulty&quot;&gt;Difficulty:&lt;/label&gt;
+          &lt;select id=&quot;newDifficulty&quot; v-model=&quot;newRecipe.difficulty_level&quot; required&gt;
+            &lt;option value=&quot;E&quot;&gt;Easy&lt;/option&gt;
+            &lt;option value=&quot;M&quot;&gt;Medium&lt;/option&gt;
+            &lt;option value=&quot;H&quot;&gt;Hard&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newRegion&quot;&gt;Region:&lt;/label&gt;
+          &lt;input id=&quot;newRegion&quot; type=&quot;text&quot; v-model=&quot;newRecipe.region&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newVegetarian&quot;&gt;Vegetarian:&lt;/label&gt;
+          &lt;input id=&quot;newVegetarian&quot; type=&quot;checkbox&quot; v-model=&quot;newRecipe.is_vegetarian&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;br&gt;
+
+        &lt;button type=&quot;submit&quot;&gt;Create Recipe&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from 'axios';
+export default {
+  name: &quot;RecipeList&quot;,
+  data() {
+    return {
+      recipes: [],
+      editRecipe: null,
+      newRecipe: {
+        title: '',
+        preparation_time: 0,
+        cooking_time: 0,
+        difficulty_level: 'E',
+        region: '',
+        is_vegetarian: false,
+        ingredients: []
+      },
+      newIngredientId: null,
+      newIngredientQuantity: '',
+      ingredients: []
+    }
+  },
+  created() {
+    this.fetchRecipes();
+    this.fetchIngredients();
+  },
+  methods: {
+    addIngredient(event) {
+      event.preventDefault();
+
+      const ingredientToAdd = this.ingredients.find(ing =&gt; ing.id === this.newIngredientId);
+      if (ingredientToAdd) {
+        this.editRecipe.ingredients.push({
+          ingredient: ingredientToAdd,
+          quantity: this.newIngredientQuantity
+        });
+
+        this.newIngredientId = null;
+        this.newIngredientQuantity = '';
+      }
+    },
+
+    removeIngredient(index) {
+      this.editRecipe.ingredients.splice(index, 1);
+    },
+
+
+    fetchIngredients() {
+      const token = localStorage.getItem('access_token');
+
+      axios.get('http://127.0.0.1:8000/api/ingredients/', {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+      .then(response =&gt; {
+        this.ingredients = response.data;
+      })
+      .catch(error =&gt; {
+        console.error('Ошибка при получении списка ингредиентов:', error);
+      });
+    },
+
+
+
+    fetchRecipes() {
+      const token = localStorage.getItem('access_token');
+
+      axios.get('http://127.0.0.1:8000/api/recipes/', {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+        .then(response =&gt; {
+          this.recipes = response.data;
+        })
+        .catch(error =&gt; {
+          console.error('Ошибка при получении рецептов:', error);
+        })
+    },
+
+
+    startEdit(recipe) {
+      this.editRecipe = {...recipe};
+    },
+    cancelEdit() {
+      this.editRecipe = null;
+    },
+    updateRecipe() {
+      const token = localStorage.getItem('access_token');
+      axios.patch(`http://127.0.0.1:8000/api/recipes/${this.editRecipe.id}/`, this.editRecipe, {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+      .then(() =&gt; {
+        this.fetchRecipes();
+        this.editRecipe = null;
+      })
+      .catch(error =&gt; {
+        console.error('Ошибка при обновлении рецепта:', error);
+      });
+    },
+
+
+    deleteRecipe(id) {
+      const token = localStorage.getItem('access_token');
+      axios.delete(`http://127.0.0.1:8000/api/recipes/${id}`, {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+      .then(() =&gt; {
+        this.fetchRecipes();
+      })
+      .catch(error =&gt; {
+        console.error('Ошибка при удалении рецепта:', error);
+      });
+    },
+
+
+    createRecipe() {
+      const token = localStorage.getItem('access_token');
+      axios.post(`http://127.0.0.1:8000/api/recipes/`, this.newRecipe, {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+      .then(() =&gt; {
+        this.fetchRecipes();
+        this.newRecipe = { title: '', preparation_time: 0, cooking_time: 0, difficulty_level: 'E', region: '', is_vegetarian: false };
+      })
+      .catch(error =&gt; {
+        console.error('Ошибка при создании рецепта:', error);
+      });
+    }
+  }
+}
+&lt;/script&gt;
+
+
+&lt;style scoped&gt;
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #4CAF50;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipe-list li {
+  background-color: #fff;
+  margin-bottom: 1em;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.recipe-list p, .recipe-list li {
+  font-size: 1em;
+}
+
+.recipe-list p {
+  margin: 5px 0;
+}
+
+.recipe-list p span.label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
+}
+
+.recipe-list p span.value {
+  color: #555;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+input[type=&quot;text&quot;], input[type=&quot;number&quot;], select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+
+.recipe-list-container,
+.form-container {
+  flex: 1;
+  padding: 50px;
+  overflow: auto;
+}
+
+.recipe-list-container {
+  max-width: 50%;
+}
+
+.form-container {
+  max-width: 50%;
+}
+
+input[type=&quot;checkbox&quot;] {
+  transform: scale(1.5);
+  margin-left: 10px;
+  border-color: #4CAF50;
+}
+&lt;/style&gt;
+</code></pre>
+<p>Также не забываем добавить стили. Смотрим как выглядит внешний вид сайта. Форма редактирования
+похожа на создание нового</p>
+<p><img alt="Picture_recipes" src="../tests/img_recipes.png" /></p>
+<h2 id="_5">Ингредиенты</h2>
+<p>Похожим образом делаем страницу с ингредиентами</p>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;div class=&quot;ingredient-list-container&quot;&gt;
+      &lt;h1&gt;Ingredients List&lt;/h1&gt;
+      &lt;ul&gt;
+        &lt;li v-for=&quot;ingredient in ingredients&quot; :key=&quot;ingredient.id&quot; class=&quot;ingredient-item&quot;&gt;
+          &lt;div class=&quot;ingredient-details&quot;&gt;
+            {{ ingredient.name }}
+            &lt;br&gt;
+            &lt;span class=&quot;allergens&quot;&gt;Allergens: {{ ingredient.allergens || 'None' }}&lt;/span&gt;
+            &lt;span class=&quot;vegetarian-status&quot;&gt;Vegetarian: {{ ingredient.is_vegetarian ? 'Yes' : 'No' }}&lt;/span&gt;
+            &lt;br&gt;
+            &lt;div class=&quot;nutritional-value&quot;&gt;
+              Nutritional Value: Calories: {{ ingredient.nutritional_value.calories }},
+              Proteins: {{ ingredient.nutritional_value.proteins }},
+              Carbohydrates: {{ ingredient.nutritional_value.carbohydrates }},
+              Fats: {{ ingredient.nutritional_value.fats }}
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;ingredient-actions&quot;&gt;
+            &lt;button @click=&quot;deleteIngredient(ingredient.id)&quot;&gt;Delete&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class=&quot;form-container&quot;&gt;
+      &lt;h2&gt;Create a New Ingredient&lt;/h2&gt;
+      &lt;form @submit.prevent=&quot;createIngredient&quot;&gt;
+        &lt;div&gt;
+          &lt;label for=&quot;newName&quot;&gt;Name:&lt;/label&gt;
+          &lt;input id=&quot;newName&quot; type=&quot;text&quot; v-model=&quot;newIngredient.name&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newAllergens&quot;&gt;Allergens:&lt;/label&gt;
+          &lt;input id=&quot;newAllergens&quot; type=&quot;text&quot; v-model=&quot;newIngredient.allergens&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newIsVegetarian&quot;&gt;Vegetarian:&lt;/label&gt;
+          &lt;input id=&quot;newIsVegetarian&quot; type=&quot;checkbox&quot; v-model=&quot;newIngredient.is_vegetarian&quot;&gt;
+          &lt;br&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newCalories&quot;&gt;Calories:&lt;/label&gt;
+          &lt;input id=&quot;newCalories&quot; type=&quot;number&quot; v-model.number=&quot;newIngredient.nutritional_value.calories&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newProteins&quot;&gt;Proteins:&lt;/label&gt;
+          &lt;input id=&quot;newProteins&quot; type=&quot;number&quot; v-model.number=&quot;newIngredient.nutritional_value.proteins&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newCarbohydrates&quot;&gt;Carbohydrates:&lt;/label&gt;
+          &lt;input id=&quot;newCarbohydrates&quot; type=&quot;number&quot; v-model.number=&quot;newIngredient.nutritional_value.carbohydrates&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;label for=&quot;newFats&quot;&gt;Fats:&lt;/label&gt;
+          &lt;input id=&quot;newFats&quot; type=&quot;number&quot; v-model.number=&quot;newIngredient.nutritional_value.fats&quot; required&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;button type=&quot;submit&quot;&gt;Add Ingredient&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+import axios from 'axios';
+
+export default {
+  name: 'IngredientsList',
+  data() {
+      return {
+        ingredients: [],
+        newIngredient: { name: '', allergens: '', is_vegetarian: false, nutritional_value:
+              {calories: 0, proteins: 0, carbohydrates: 0, fats: 0} }
+      }
+  },
+  created() {
+      this.fetchIngredients();
+  },
+  methods: {
+  fetchIngredients() {
+      const token = localStorage.getItem('access_token');
+
+      axios.get('http://127.0.0.1:8000/api/ingredients/', {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+      .then(response =&gt; {
+        this.ingredients = response.data;
+      })
+      .catch(error =&gt; {
+        console.error('Ошибка при получении списка ингредиентов:', error);
+      });
+  },
+  createIngredient() {
+    const token = localStorage.getItem('access_token');
+    axios.post('http://127.0.0.1:8000/api/ingredients/', this.newIngredient, {
+      headers: {
+        'Authorization': `Token ${token}`
+      }
+    })
+    .then(() =&gt; {
+      this.fetchIngredients();
+      this.newIngredient = { name: '', allergens: '', is_vegetarian: false, nutritional_value:
+                           {calories: 0, proteins: 0, carbohydrates: 0, fats: 0} };
+    })
+    .catch(error =&gt; {
+      console.error('Ошибка при создании ингредиента:', error);
+    });
+  },
+  deleteIngredient(ingredientId) {
+    const token = localStorage.getItem('access_token');
+    axios.delete(`http://127.0.0.1:8000/api/ingredients/${ingredientId}`, {
+      headers: {
+        'Authorization': `Token ${token}`
+      }
+    })
+    .then(() =&gt; {
+      this.fetchIngredients(); // Refresh the list after deletion
+    })
+    .catch(error =&gt; {
+      console.error('Ошибка при удалении ингредиента:', error);
+    });
+  }
+}
+
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+  line-height: 1.6;
+}
+
+
+h1, h2, h3 {
+  color: #4CAF50;
+  text-align: center;
+}
+
+.ingredient-list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+li {
+  background-color: #fff;
+  margin-bottom: 1em;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  line-height: 1.5;
+}
+
+.allergens, .vegetarian-status, .nutritional-value {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.vegetarian-status {
+  color: #4CAF50;
+}
+
+.allergens {
+  color: #E53935;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+input[type=&quot;text&quot;], input[type=&quot;number&quot;], select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label[for=&quot;newIsVegetarian&quot;] {
+  margin-right: 10px;
+}
+
+input[type=&quot;checkbox&quot;] {
+  transform: scale(1.5);
+  margin-right: 5px;
+  border-color: #4CAF50;
+}
+
+&lt;/style&gt;
+
+
+</code></pre>
+<p>Внешний вид:</p>
+<p><img alt="Picture_ingredients" src="../tests/img_ingrs.png" /></p>
+<h2 id="_6">Общее</h2>
+<p>Нужно добавить шапку сайта, которую видно на внешнем виде ингредиентов и настроить App.vue и
+main.js</p>
+<h3 id="appvue">App.vue</h3>
+<pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;header v-if=&quot;showHeader&quot;&gt;
+      &lt;NavigationMenu /&gt;
+    &lt;/header&gt;
+
+    &lt;RouterView /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import NavigationMenu from &quot;@/components/NavigationMenu.vue&quot;;
+
+const route = useRoute();
+
+const showHeader = computed(() =&gt; {
+  return route.path !== '/login' &amp;&amp; route.path !== '/register';
+});
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.main-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  padding: 20px;
+}
+
+.recipe-container, .form-container {
+  flex: 1;
+  padding: 10px;
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="navigationmenu">NavigationMenu</h3>
+<pre><code>&lt;template&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;router-link to=&quot;/&quot;&gt;Main&lt;/router-link&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;router-link to=&quot;/ingredients&quot;&gt;Ingredients&lt;/router-link&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;router-link to=&quot;/recipes&quot;&gt;Recipes&lt;/router-link&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;button @click=&quot;logout&quot;&gt;Log out&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'NavigationMenu',
+  methods: {
+    logout() {
+      console.log('Token before logout:', localStorage.getItem('access_token'));
+      localStorage.removeItem('access_token');
+      console.log('Token after logout:', localStorage.getItem('access_token'));
+      this.$router.push('/login');
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav {
+  width: 100%;
+  background-color: #f8f8f8; /* Choose a color that fits your design */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* Adjust height as needed */
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+&lt;/style&gt;
+
+</code></pre>
+<h3 id="mainjs">main.js</h3>
+<pre><code>import './assets/main.css'
+
+import { createApp } from 'vue'
+import App from './App.vue'
+//import router from './router'
+import LoginPage from &quot;./components/LoginPage.vue&quot;;
+import {createRouter, createWebHistory} from &quot;vue-router&quot;;
+import axios from 'axios';
+import RegisterPage from &quot;@/components/RegisterPage.vue&quot;;
+import IngredientsList from &quot;@/components/IngredientsList.vue&quot;;
+import HomePage from &quot;@/components/HomePage.vue&quot;;
+import RecipeList from &quot;@/components/RecipeList.vue&quot;;
+
+const app = createApp(App)
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: HomePage },
+    { path: '/login', component: LoginPage },
+    { path: '/register', component: RegisterPage },
+    { path: '/ingredients', component: IngredientsList },
+    { path: '/recipes', component: RecipeList },
+  ]
+});
+
+app.use(router)
+
+app.mount('#app')
+</code></pre>
+<h2 id="_7">Вывод</h2>
+<p>При выполнении данной лабораторной работы я изучил как создавать клиентскую часть приложения</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
